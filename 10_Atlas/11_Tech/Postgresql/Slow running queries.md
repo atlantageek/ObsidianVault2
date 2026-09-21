@@ -1,0 +1,1 @@
+SELECT pid, age(clock_timestamp(), query_start) AS duration, usename AS user, datname AS database, state, query FROM pg_stat_activity WHERE state = 'active' AND query NOT ILIKE '%pg_stat_activity%' ORDER BY duration DESC;
